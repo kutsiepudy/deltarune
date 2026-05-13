@@ -114,6 +114,9 @@
         setStatus: function (text) {
           if (!Module.setStatus.last)
             Module.setStatus.last = { time: Date.now(), text: "" };
+					if (typeof text !== 'string') {
+						text = String(text);
+					}
           if (text === Module.setStatus.last.text) return;
           var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
           var now = Date.now();
